@@ -265,7 +265,7 @@ static int is_obj_present(TEEC_UUID *p_uuid, void *file_id,
         if (ree_fs_get_ta_dirname(p_uuid, ta_dirname, sizeof(ta_dirname)) &&
             get_obj_filename(file_id, file_id_length, obj_filename,
 			     sizeof(obj_filename))) {
-		snprintf(path, sizeof(path), "/data/tee/%s/%s",
+		snprintf(path, sizeof(path), TEE_FS_SUBPATH"/tee/%s/%s",
 			ta_dirname, obj_filename);
 
                 return !stat(path, &sb);
@@ -307,7 +307,7 @@ static TEEC_Result obj_corrupt(TEEC_UUID *p_uuid, void *file_id,
 		 * and rewrite this value at the same offset
 		 */
 
-		snprintf(name, sizeof(name), "/data/tee/%s/%s",
+		snprintf(name, sizeof(name), TEE_FS_SUBPATH"/tee/%s/%s",
 			 ta_dirname, obj_filename);
 
 		real_offset = sizeof(uint32_t); /* meta counter */

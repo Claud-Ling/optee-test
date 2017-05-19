@@ -1459,7 +1459,7 @@ static int get_ta_storage_path(TEEC_UUID *p_uuid, char *buffer, uint32_t len)
 	if (!p_uuid || !buffer)
 		return -1;
 
-	s = snprintf(buffer, len, "/data/tee/");
+	s = snprintf(buffer, len, TEE_FS_SUBPATH"/tee/");
 	if (s < 0 || s >= (int)len)
 		return -1;
 

@@ -130,6 +130,16 @@ CFLAGS += -g3
 LDFLAGS += -L$(OPTEE_CLIENT_EXPORT)/lib -lteec
 LDFLAGS += -lpthread -lm
 
+# Let builder have a say on TA_DIR
+ifneq ("$(origin CFG_TA_DIR)","undefined")
+CFLAGS	+= -DTA_DIR=\"$(CFG_TA_DIR)/optee_armtz\"
+endif
+
+# Let builder have a say on TEE_FS_SUBPATH
+ifneq ("$(origin CFG_TEE_FS_SUBPATH)","undefined")
+CFLAGS	+= -DCFG_TEE_FS_SUBPATH=\"$(CFG_TEE_FS_SUBPATH)\"
+endif
+
 .PHONY: all
 all: xtest
 

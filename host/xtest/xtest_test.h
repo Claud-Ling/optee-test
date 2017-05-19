@@ -15,6 +15,7 @@
 #define XTEST_TEST_H
 #include <adbg.h>
 #include <tee_client_api.h>
+#include "xtest_tee_fs.h"
 
 /*ADBG Cases declaration.*/
 ADBG_CASE_DECLARE(XTEST_TEE_1001);

@@ -20,6 +20,11 @@ endif
 CROSS_COMPILE_HOST ?= $(CROSS_COMPILE)
 CROSS_COMPILE_TA ?= $(CROSS_COMPILE)
 
+# TEEX test cases
+ifdef CFG_HAVE_LIBUTEEX
+export WITH_TEEX_TESTS=y
+endif
+
 .PHONY: all
 ifneq ($(wildcard $(TA_DEV_KIT_DIR)/host_include/conf.mk),)
 all: xtest ta

@@ -28,6 +28,9 @@
 #include <tee_api_types.h>
 #include <TTA_DS_protocol.h>
 #endif
+#ifdef WITH_TEEX_TESTS
+#include <ta_teex.h>
+#endif
 
 ADBG_ENUM_TABLE_DEFINE_BEGIN(TEEC_Result)
 ADBG_ENUM_TABLE_ENTRY(TEEC_SUCCESS),
@@ -93,4 +96,9 @@ const TEEC_UUID concurrent_large_ta_uuid = TA_CONCURRENT_LARGE_UUID;
 const TEEC_UUID storage_benchmark_ta_uuid = TA_STORAGE_BENCHMARK_UUID;
 #ifdef WITH_GP_TESTS
 const TEEC_UUID gp_tta_ds_uuid = TA_TTA_DS_UUID;
+#endif
+
+#ifdef WITH_TEEX_TESTS
+const TEEC_UUID teex_ta_uuid = TA_TEEX_UUID;
+const TEEC_UUID teex2_ta_uuid = TA_TEEX2_UUID;
 #endif

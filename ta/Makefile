@@ -39,11 +39,16 @@ TA_DIRS += GP_TTA_Arithmetical \
 	   GP_TTA_testingClientAPI
 endif
 
+ifeq ($(WITH_TEEX_TESTS),y)
+TA_DIRS += teex \
+	   teex2
+endif
+
 .PHONY: all
 all: ta
 
 .PHONY: ta
-ta: 
+ta:
 	$(q)$(foreach dir,$(TA_DIRS), $(MAKE) -C $(dir) O=$(O)/$(dir) &&) true
 
 .PHONY: clean

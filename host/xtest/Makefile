@@ -55,6 +55,14 @@ srcs  += xtest_7500.c \
 	 xtest_9000.c
 endif
 
+# TEEX test cases
+ifeq ($(WITH_TEEX_TESTS),y)
+CFLAGS += -DWITH_TEEX_TESTS \
+	  -I../../ta/teex/include
+
+srcs  += xtest_90000.c
+endif
+
 objs 	:= $(patsubst %.c,$(O)/%.o, $(srcs))
 
 CFLAGS += -I./
